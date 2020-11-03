@@ -175,6 +175,9 @@ impl RsaKeyPair {
     }
 
     fn from_der_reader(input: &mut untrusted::Reader) -> Result<Self, KeyRejected> {
+
+println!("KKKKKKKKKKKKKKKKKKKKKKK");
+
         let version = der::small_nonnegative_integer(input)
             .map_err(|error::Unspecified| KeyRejected::invalid_encoding())?;
         if version != 0 {
